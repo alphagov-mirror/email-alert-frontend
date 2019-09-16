@@ -33,6 +33,12 @@
         </h3>
         <%= govspeak do %>
           <p>
+            <%= subscription['created_at'].to_datetime.strftime("Created on %-d %B %Y at %-I:%M%P") %>
+          </p>
+          <% if subscription['subscriber_list']['description'].present? %>
+            <%= raw(Kramdown::Document.new(subscription['subscriber_list']['description']).to_html) %>
+          <% end %>
+          <p>
             <%= I18n.t("frequencies.#{subscription['frequency']}.subscribed_summary") %>
             <br><a href="<%= update_frequency_path(id: subscription['id']) %>">Change how often you get updates</a>
           </p>
