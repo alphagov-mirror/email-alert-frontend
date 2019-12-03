@@ -8,7 +8,7 @@ module FrequenciesHelper
       {
         value: frequency,
         text: desc,
-        checked: (options[:checked_frequency] == frequency.to_s),
+        checked: (options[:checked_frequency] ? frequency.to_s : nil),
       }
     }
   end
