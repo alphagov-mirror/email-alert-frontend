@@ -48,6 +48,8 @@ class SubscriptionsController < ApplicationController
                           end
       render :new_address
     end
+  rescue VerifySubscriptionEmailService::RatelimitExceededError
+    head :too_many_requests
   end
 
 private
