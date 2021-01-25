@@ -22,7 +22,8 @@ RSpec.feature "Receive confirmation email when managing subscriptions" do
       subscriber_id, @email_address
     )
 
-    fill_in I18n.t!("subscriber_authentication.sign_in.email_input.label"),
+    fill_in I18n.t!("subscriber_authentication.sign_in.email_input"),
+            name: :address,
             with: @email_address
     click_on "Continue"
   end
